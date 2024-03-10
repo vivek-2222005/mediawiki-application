@@ -56,25 +56,29 @@ echo "Getting Deployment Values"
 echo "--------------------------------------------------------------"
 
 export APP_HOST=$(kubectl get svc --namespace wiki mediawiki --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+echo "Application Host: $APP_HOST"
 
 export APP_PASSWORD=$(kubectl get secret --namespace wiki mediawiki -o jsonpath="{.data.mediawiki-password}" | base64 -d)
+echo "Application Password: $APP_PASSWORD"
 
 export MARIADB_ROOT_PASSWORD=$(kubectl get secret --namespace wiki mediawiki-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 -d)
+echo "MariaDb Root Password: $MARIADB_ROOT_PASSWORD"
 
 export MARIADB_PASSWORD=$(kubectl get secret --namespace wiki mediawiki-mariadb -o jsonpath="{.data.mariadb-password}" | base64 -d)
+echo "MariaDb Password: $MARIADB_PASSWORD"
 
 echo "--------------------------------------------------------------"
 echo "Upgrade Helm Deployment"
 echo "--------------------------------------------------------------"
 
 helm upgrade --namespace wiki mediawiki oci://registry-1.docker.io/bitnamicharts/mediawiki --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
-
+helm upgrade --namespace wiki mediawiki oci://registry-1.docker.io/bitnamicharts/mediawiki --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
 echo "--------------------------------------------------------------"
-echo "Kindly use below given credentials to login"
+echo "Please use following credentials to login"
 echo "--------------------------------------------------------------"
 
 export SERVICE_IP=$(kubectl get svc --namespace wiki mediawiki --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
 
 echo "Mediawiki Application URL: http://$SERVICE_IP/"
 echo Username: user
-#echo Password: $(kubectl get secret --namespace wiki mediawiki -o jsonpath="{.data.mediawiki-password}" | base64 -d)
+echo Password: $(kubectl get secret --namespace wiki mediawiki -o jsonpath="{.data.mediawiki-password}" | base64 -d)

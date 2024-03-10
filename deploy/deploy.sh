@@ -72,7 +72,7 @@ echo "Upgrade Helm Deployment"
 echo "--------------------------------------------------------------"
 
 helm upgrade --namespace wiki mediawiki oci://registry-1.docker.io/bitnamicharts/mediawiki --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
-helm upgrade --namespace wiki mediawiki oci://registry-1.docker.io/bitnamicharts/mediawiki --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
+
 echo "--------------------------------------------------------------"
 echo "Please use following credentials to login"
 echo "--------------------------------------------------------------"

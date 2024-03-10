@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: terraform
     env: 
-      MEDIAEIKI_SUBSCRIPTION: ${{ secrets.SUBSCRIPTION_ID }}
+      MEDIAWIKI_SUBSCRIPTION: ${{ secrets.SUBSCRIPTION_ID }}
       RESOURCE_GROUP: ${{ secrets.AKS_RG }}
       K8S_CLUSTERNAME: ${{ secrets.CLUSTERNAME }}
       MEDIAWIKI_NAMESPACE: "wiki"

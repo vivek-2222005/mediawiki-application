@@ -77,6 +77,9 @@ export MEDIAWIKI_SUBSCRIPTION="<subscription-id of Azure Account>"
 export RESOURCE_GROUP="<resource-group-name of K8S-server>"
 export K8S_CLUSTERNAME="<K8S cluster-name Name>"
 export MEDIAWIKI_NAMESPACE="wiki"
+
+After updating variables run script to install mediawiki application on AKS cluster
+sh deploy.sh
 ```
 * Bash script is using Bitnami MediaWiki Helm Chart Repository to deploy MediaWiki and MariaDb.
 * Deployment of Helm chart is automated and script will provide MediaWiki URL, Username and Password in following format.

@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-  backend "azurerm" {
-    resource_group_name  = "aks-demo"
-    storage_account_name = "mediawikistg"
-    container_name       = "mediawiki-1"
-    key                  = "mediawiki-app-dev.tfstate"
-  }
+  /*backend "azurerm" {
+    resource_group_name  = "xxxxxx"
+    storage_account_name = "xxxxxx"
+    container_name       = "xxxxx"
+    key                  = "xxxxxx"
+  }*/
 }
 
 provider "azurerm" {

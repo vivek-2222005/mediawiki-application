@@ -44,6 +44,17 @@ variable "aks_version" {
   default     = "1.27.9"
 }
 ```
+```json
+Remove or comment out below section from "provider.tf" if remote backend is not required
+
+  backend "azurerm" {
+    resource_group_name  = "xxxxxx"
+    storage_account_name = "xxxxxx"
+    container_name       = "xxxxx"
+    key                  = "xxxxxx"
+  }
+```
+
 * Initiate terraform locally.
 ```powershell
 terraform init

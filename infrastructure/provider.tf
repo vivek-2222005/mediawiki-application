@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "xxx"
-    storage_account_name = "xxxxx"
-    container_name       = "xxxxx"
-    key                  = "xxxxx.tfstate"
+    resource_group_name  = "aks-demo"
+    storage_account_name = "mediawikistg"
+    container_name       = "mediawiki-1"
+    key                  = "mediawiki-app-dev.tfstate"
   }
 }
 

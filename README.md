@@ -35,6 +35,7 @@ variable "location" {
 
 variable "env" {
   description = "Possible values could be Dev/Test/Prod."
+  type    = string
   default     = "dev"
 }
 
@@ -65,7 +66,7 @@ terraform apply
   * Node pool with auto scaling enabled.
 ***
 
-### Helm Deployment to Azure Kubernetes Service
+### Helm Chart Deployment to Azure Kubernetes Service
 * Change directory to "deploy"
 ```powershell
 cd deploy

@@ -101,5 +101,11 @@ jobs:
          cd deploy
          chmod 755 deploy.sh
          ./deploy.sh
+
+     # Logout from Azure Subscription
+      - name: logout
+        run: >
+          az logout 
+    
       
  

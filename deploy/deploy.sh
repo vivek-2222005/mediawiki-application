@@ -55,6 +55,8 @@ echo "--------------------------------------------------------------"
 echo "Getting Deployment Values"
 echo "--------------------------------------------------------------"
 
+sleep 60
+
 export APP_HOST=$(kubectl get svc --namespace wiki mediawiki --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
 echo "Application Host: $APP_HOST"
 
